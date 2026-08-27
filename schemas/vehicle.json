@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/VinceMelkumyan/open-dealer-data-schema/blob/main/schemas/vehicle.json",
+  "title": "Vehicle",
+  "description": "A vehicle entity within the Open Dealer Data Schema.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "vin",
+    "year",
+    "make",
+    "model",
+    "condition",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the vehicle within the implementing system.",
+      "minLength": 1
+    },
+    "vin": {
+      "type": "string",
+      "description": "Vehicle Identification Number. Example values in this repository are synthetic.",
+      "minLength": 1
+    },
+    "stockNumber": {
+      "type": "string",
+      "description": "Dealer-assigned inventory or stock number."
+    },
+    "year": {
+      "type": "integer",
+      "description": "Model year.",
+      "minimum": 1886,
+      "maximum": 2100
+    },
+    "make": {
+      "type": "string",
+      "description": "Vehicle manufacturer.",
+      "minLength": 1
+    },
+    "model": {
+      "type": "string",
+      "description": "Vehicle model.",
+      "minLength": 1
+    },
+    "trim": {
+      "type": "string",
+      "description": "Vehicle trim or grade."
+    },
+    "mileage": {
+      "type": "integer",
+      "description": "Current vehicle mileage.",
+      "minimum": 0
+    },
+    "condition": {
+      "type": "string",
+      "description": "Vehicle condition.",
+      "enum": [
+        "new",
+        "used",
+        "certified",
+        "demo"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "description": "Current operational status of the vehicle.",
+      "enum": [
+        "available",
+        "reserved",
+        "sold",
+        "in_transit",
+        "service",
+        "wholesale",
+        "inactive"
+      ]
+    },
+    "bodyStyle": {
+      "type": "string",
+      "description": "Vehicle body style."
+    },
+    "fuelType": {
+      "type": "string",
+      "description": "Primary fuel or propulsion type.",
+      "enum": [
+        "gasoline",
+        "diesel",
+        "hybrid",
+        "plug_in_hybrid",
+        "electric",
+        "hydrogen",
+        "other"
+      ]
+    },
+    "transmission": {
+      "type": "string",
+      "description": "Vehicle transmission type."
+    },
+    "exteriorColor": {
+      "type": "string",
+      "description": "Exterior color."
+    },
+    "interiorColor": {
+      "type": "string",
+      "description": "Interior color."
+    },
+    "msrp": {
+      "type": "number",
+      "description": "Manufacturer suggested retail price, when applicable.",
+      "minimum": 0
+    },
+    "internetPrice": {
+      "type": "number",
+      "description": "Publicly advertised internet price, when applicable.",
+      "minimum": 0
+    },
+    "acquisitionDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the vehicle entered the dealer's inventory."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the record was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the record was last updated."
+    }
+  }
+}
